@@ -31,7 +31,7 @@ const tamaños = ['pequeño', 'mediano', 'chico']
 
 # Métodos
 
-Nos facilitan el uso y la manipulación de los arrays.
+Facilitan el uso y la manipulación de los arrays. Permiten modificar y leer valores en los arrays.
 
 ## Array.prototype.at()
 
