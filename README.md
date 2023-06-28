@@ -22,7 +22,12 @@ En JavaScript todos los arrays son dinámicos lo que quiere decir que pueden var
 
 ## Sintaxis
 
-`const nombreArray = ['valor', 111, false, { a: 2 }, null]`
+```js
+const nombreArray = [valor, valor]
+
+// ejemplo
+const tamaños = ['pequeño', 'mediano', 'chico']
+```
 
 # Métodos
 
@@ -32,13 +37,14 @@ Nos facilitan el uso y la manipulación de los arrays.
 
 Retorna el elemento del índice que recibe como argumento. [Ver ejemplo en código.](./ejemplos/at.js)
 
+*Sintaxis*
+
+```
+arrayNombre.at(indice)
+```
+
 ![Ilustración en código del método](img/at.svg)
 
-*Tabla de parámetros*
-
-| Parámetros | Tipo   | Descripción                    |
-| ---------- | ------ | ------------------------------ |
-| índice     | number | Índice del elemento a retornar |
 
 *Notas*
 
