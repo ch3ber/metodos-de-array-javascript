@@ -11,12 +11,17 @@
 - [Conoce todos métodos de Array en JavaScript aprobados por el TC39](#conoce-todos-métodos-de-array-en-javascript-aprobados-por-el-tc39)
   - [Definición](#definición)
   - [Sintaxis](#sintaxis)
+  - [Métodos aprobados por el TC39](#métodos-aprobados-por-el-tc39)
 - [Métodos](#métodos)
   - [Array.prototype.at()](#arrayprototypeat)
   - [Array.prototype.concat()](#arrayprototypeconcat)
   - [Array.prototype.copyWithin()](#arrayprototypecopywithin)
   - [Array.prototype.entries()](#arrayprototypeentries)
   - [Array.prototype.every()](#arrayprototypeevery)
+  - [Array.prototype.filter()](#arrayprototypefilter)
+  - [Array.prototype.find()](#arrayprototypefind)
+  - [Array.prototype.findIndex()](#arrayprototypefindindex)
+  - [Array.prototype.flat()](#arrayprototypeflat)
 
 ## Definición
 
@@ -32,6 +37,9 @@ const nombreArray = [valor, valor]
 // ejemplo
 const tamaños = ['pequeño', 'mediano', 'chico']
 ```
+
+## Métodos aprobados por el TC39
+En [este link](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-properties-of-the-array-prototype-object) podras encontrar todos los metodos de javascript aprobados por el grupo TC39
 
 # Métodos
 
@@ -79,7 +87,7 @@ console.log(alimentos); // Retorna ['manzana', 'banana', 'zanahoria', 'papa']
 ```
 
 **Notas**
-- El método `concat()` no modifica los arrays originales, sino que devuelve un nuevo array.
+- No modifica los arrays originales, sino que devuelve un nuevo array.
 - Se pueden pasar múltiples arrays como argumentos para concatenarlos en el orden en que se proporcionan.
 
 ## Array.prototype.copyWithin()
@@ -101,7 +109,7 @@ console.log(numeros); // Retorna [4, 5, 3, 4, 5]
 ```
 
 **Notas**
-- El método `copyWithin()` modifica el array original al copiar los elementos.
+- Modifica el array original al copiar los elementos.
 - `target` índice de destino donde se copiarán los elementos.
 - `start` (opcional) índice de inicio desde donde se copiarán los elementos (por defecto es 0).
 - `end` (opcional) índice de finalización hasta donde se copiarán los elementos (por defecto es la longitud del array).
@@ -148,5 +156,91 @@ console.log(mayoresDeEdad); // Retorna true
 ```
 
 **Notas**
-- El método `every()` ejecuta la función de callback proporcionada una vez por cada elemento del array hasta que se encuentre un elemento que no cumpla la condición.
+- Ejecuta la función de callback una vez por cada elemento del array hasta que se encuentre un elemento que no cumpla la condición.
 - Devuelve `true` si todos los elementos cumplen con la condición, de lo contrario, devuelve `false`.
+
+## Array.prototype.filter()
+
+Crea array con todos los elementos que cumplan una condición.
+
+**Sintaxis**
+```typescript
+arrayNombre.filter(callback[(currentValue, index, array) => any[]][, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const numerosPares = numeros.filter((numero) => numero % 2 === 0);
+
+console.log(numerosPares); // Retorna [2, 4]
+```
+
+**Notas**
+- Ejecuta la función de callback una vez por cada elemento del array.
+- Crea un nuevo array con los elementos que cumplan la condición del callback.
+- No modifica el array original.
+
+## Array.prototype.find()
+
+Retorna el primer elemento del array que cumpla con una condición.
+
+**Sintaxis**
+```typescript
+arrayNombre.find(callback[(element, index, array]) => any][, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+const frutaEncontrada = frutas.find((fruta) => fruta === 'banana');
+
+console.log(frutaEncontrada); // Retorna 'banana'
+```
+
+**Notas**
+- Retorna `undefined` si no se encuentra ningun elemento que cumpla con la condición.
+
+## Array.prototype.findIndex()
+
+Retorna el índice del primer elemento del array que cumpla con una condición.
+
+**Sintaxis**
+```javascript
+arrayNombre.findIndex(callback[(element, index, array) => number][thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [10, 20, 30, 40, 50];
+
+const indice = numeros.findIndex((numero) => numero > 30);
+
+console.log(indice); // Retorna 3 porque 40 es mayor que 30
+```
+
+**Notas**
+- Retorna -1 si no se encuentra ningun elemento que cumpla con la condición.
+
+## Array.prototype.flat()
+
+Crea un array que es una versión aplanada (flatten) del array original, un array con todos los elementos de los subarrays concatenados de manera recursiva hasta la profundidad especificada, elimina la anidación de arrays.
+
+**Sintaxis**
+```javascript
+arrayNombre.flat([depth])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, [2, [3, [4]]]];
+
+const numerosAplanados = numeros.flat();
+
+console.log(numerosAplanados); // Retorna [1, 2, [3, [4]]]
+```
+
+**Notas**
+- Por defecto, `depth` es 1, lo que significa que solo se aplana un nivel. Se puede especificar un valor mayor para aplanar aún más.
