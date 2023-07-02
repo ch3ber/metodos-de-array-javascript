@@ -22,6 +22,10 @@
   - [Array.prototype.find()](#arrayprototypefind)
   - [Array.prototype.findIndex()](#arrayprototypefindindex)
   - [Array.prototype.flat()](#arrayprototypeflat)
+  - [Array.prototype.flatMap()](#arrayprototypeflatmap)
+  - [Array.prototype.forEach()](#arrayprototypeforeach)
+  - [Array.prototype.includes()](#arrayprototypeincludes)
+  - [Array.prototype.indexOf()](#arrayprototypeindexof)
 
 ## Definición
 
@@ -165,7 +169,7 @@ Crea array con todos los elementos que cumplan una condición.
 
 **Sintaxis**
 ```typescript
-arrayNombre.filter(callback[(currentValue, index, array) => any[]][, thisArg])
+arrayNombre.filter(callback[(currentValue, index, array) => boolean][, thisArg])
 ```
 
 **Ejemplo**
@@ -188,7 +192,7 @@ Retorna el primer elemento del array que cumpla con una condición.
 
 **Sintaxis**
 ```typescript
-arrayNombre.find(callback[(element, index, array]) => any][, thisArg])
+arrayNombre.find(callback[(element, index, array]) => boolean][, thisArg])
 ```
 
 **Ejemplo**
@@ -209,7 +213,7 @@ Retorna el índice del primer elemento del array que cumpla con una condición.
 
 **Sintaxis**
 ```javascript
-arrayNombre.findIndex(callback[(element, index, array) => number][thisArg])
+arrayNombre.findIndex(callback[(element, index, array) => boolean][thisArg])
 ```
 
 **Ejemplo**
@@ -244,3 +248,78 @@ console.log(numerosAplanados); // Retorna [1, 2, [3, [4]]]
 
 **Notas**
 - Por defecto, `depth` es 1, lo que significa que solo se aplana un nivel. Se puede especificar un valor mayor para aplanar aún más.
+
+## Array.prototype.flatMap()
+
+Combina los pasos de `map()` y `flat()` en un solo método. Aplica una función a cada elemento y luego aplana el resultado un nivel.
+
+**Sintaxis**
+```javascript
+arrayNombre.flatMap(callback[(currentValue, index, array) => any][, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3];
+
+const numerosDuplicados = numeros.flatMap((numero) => [numero, numero]);
+
+console.log(numerosDuplicados); // Retorna [1, 1, 2, 2, 3, 3]
+```
+
+## Array.prototype.forEach()
+
+Ejecuta un callback por cada elemento del array. No retorna ningún valor y no modifica el array original.
+
+**Sintaxis**
+```javascript
+arrayNombre.forEach(callback[(currentValue, index, array) => void][, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+frutas.forEach((fruta) => {
+  console.log(fruta);
+});
+
+// Imprime:
+// manzana
+// banana
+// pera
+```
+
+## Array.prototype.includes()
+
+Determina si el array incluye un elemento, si se encuentra devuelve `true` de lo contrario devolverá `false`.
+
+**Sintaxis**
+```javascript
+arrayNombre.includes(elemento, indiceInicio)
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+console.log(numeros.includes(3)); // Retorna true
+console.log(numeros.includes(6)); // Retorna false
+```
+
+## Array.prototype.indexOf()
+
+Retorna el primer índice del elemento especificado o -1 si no se encuentra.
+
+**Sintaxis**
+```javascript
+arrayNombre.indexOf(elemento, indiceInicio)
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul', 'amarillo'];
+
+console.log(colores.indexOf('azul'));    // Retorna 1
+console.log(colores.indexOf('verde'));   // Retorna -1
+```
