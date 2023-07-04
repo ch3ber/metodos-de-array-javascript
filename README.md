@@ -34,6 +34,10 @@
   - [Array.prototype.push()](#arrayprototypepush)
   - [Array.prototype.reduce()](#arrayprototypereduce)
   - [Array.prototype.reduceRight()](#arrayprototypereduceright)
+  - [Array.prototype.reverse()](#arrayprototypereverse)
+  - [Array.prototype.shift()](#arrayprototypeshift)
+  - [Array.prototype.slice()](#arrayprototypeslice)
+  - [Array.prototype.some()](#arrayprototypesome)
 
 ## Definición
 
@@ -519,3 +523,91 @@ console.log(resta); // Retorna -5
 
 **Notas**
 - El acumulador se actualiza en cada iteración.
+
+## Array.prototype.reverse()
+
+Invierte el orden de los elementos del array.
+
+**Sintaxis**
+```javascript
+arrayNombre.reverse()
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul', 'amarillo'];
+
+colores.reverse();
+
+console.log(colores); // Retorna ['amarillo', 'azul', 'rojo']
+```
+
+**Notas**
+- Modifica el array original.
+
+## Array.prototype.shift()
+
+Elimina el primer elemento del array y lo retorna.
+
+**Sintaxis**
+```javascript
+arrayNombre.shift()
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+const primeraFruta = frutas.shift();
+
+console.log(primeraFruta); // Retorna "manzana"
+console.log(frutas);       // Retorna ['banana', 'pera']
+```
+
+**Notas**
+- Modifica el array original.
+
+## Array.prototype.slice()
+
+Crea una copia de una porción del array original en un nuevo array.
+
+**Sintaxis**
+```javascript
+arrayNombre.slice(inicio, fin)
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const subArray = numeros.slice(2, 4);
+
+console.log(subArray); // Retorna [3, 4]
+```
+
+**Notas**
+- Si no se proporciona el índice de fin, se copian todos los elementos a partir del índice de inicio hasta el final del array.
+- No modifica el array original.
+
+## Array.prototype.some()
+
+Verifica si al algún un elemento del array cumple con una condición.
+
+**Sintaxis**
+```typescript
+arrayNombre.some(function callback(item): boolean {
+  // condicion para retornar
+}, [, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const tienePares = numeros.some((numero) => numero % 2 === 0);
+
+console.log(tienePares); // Retorna true
+```
+
+**Notas**
+- Retorna `true` si al menos un elemento cumple con la condición, de lo contrario, retorna `false`.
