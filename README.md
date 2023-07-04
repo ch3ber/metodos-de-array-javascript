@@ -480,7 +480,7 @@ Aplica un callback a un acumulador y a cada elemento del array (de izquierda a d
 
 **Sintaxis**
 ```typescript
-arrayNombre.reduce(function callback(acumulador, item, array): any {
+arrayNombre.reduce(function callback(acumulador, currentValue, index, array): any {
   // retornar acumulador
 }, [, valorInicial])
 ```
@@ -503,7 +503,7 @@ Aplica un callback a un acumulador y a cada elemento del array (de derecha a izq
 
 **Sintaxis**
 ```typescript
-arrayNombre.reduce(function callback(acumulador, item, array): any {
+arrayNombre.reduceRight(function callback(acumulador, currentValue, index, array): any {
   // retornar acumulador
 }, [, valorInicial])
 ```
