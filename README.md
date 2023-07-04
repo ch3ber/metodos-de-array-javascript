@@ -30,6 +30,10 @@
   - [Array.prototype.keys()](#arrayprototypekeys)
   - [Array.prototype.lastIndexOf()](#arrayprototypelastindexof)
   - [Array.prototype.map()](#arrayprototypemap)
+  - [Array.prototype.pop()](#arrayprototypepop)
+  - [Array.prototype.push()](#arrayprototypepush)
+  - [Array.prototype.reduce()](#arrayprototypereduce)
+  - [Array.prototype.reduceRight()](#arrayprototypereduceright)
 
 ## Definición
 
@@ -425,3 +429,93 @@ const numerosDoble = numeros.map((numero) => numero * 2);
 
 console.log(numerosDoble); // Retorna [2, 4, 6]
 ```
+
+## Array.prototype.pop()
+
+Elimina el último elemento del array y lo retorna.
+
+**Sintaxis**
+```javascript
+arrayNombre.pop()
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+const ultimaFruta = frutas.pop();
+
+console.log(ultimaFruta); // Retorna "pera"
+console.log(frutas);      // Retorna ['manzana', 'banana']
+```
+
+**Notas**
+- Modifica el array original.
+
+## Array.prototype.push()
+
+Agrega uno o más elementos al final del array y retorna la longitud del array.
+
+**Sintaxis**
+```javascript
+arrayNombre.push(elemento1, elemento2, ..., elementoN)
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul'];
+
+const nuevaLongitud = colores.push('amarillo', 'verde');
+
+console.log(nuevaLongitud);    // Retorna 4
+console.log(colores);          // Retorna ['rojo', 'azul', 'amarillo', 'verde']
+```
+
+**Notas**
+- Modifica el array original.
+
+## Array.prototype.reduce()
+
+Aplica un callback a un acumulador y a cada elemento del array (de izquierda a derecha) para reducirlo a un único valor, que al final es retornado.
+
+**Sintaxis**
+```typescript
+arrayNombre.reduce(function callback(acumulador, item, array): any {
+  // retornar acumulador
+}, [, valorInicial])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero);
+
+console.log(suma); // Retorna 15
+```
+
+**Notas**
+- El acumulador se actualiza en cada iteración.
+
+## Array.prototype.reduceRight()
+
+Aplica un callback a un acumulador y a cada elemento del array (de derecha a izquierda) para reducirlo a un único valor, que al final es retornado.
+
+**Sintaxis**
+```typescript
+arrayNombre.reduce(function callback(acumulador, item, array): any {
+  // retornar acumulador
+}, [, valorInicial])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const resta = numeros.reduceRight((acumulador, numero) => acumulador - numero);
+
+console.log(resta); // Retorna -5
+```
+
+**Notas**
+- El acumulador se actualiza en cada iteración.
