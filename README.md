@@ -26,6 +26,10 @@
   - [Array.prototype.forEach()](#arrayprototypeforeach)
   - [Array.prototype.includes()](#arrayprototypeincludes)
   - [Array.prototype.indexOf()](#arrayprototypeindexof)
+  - [Array.prototype.join()](#arrayprototypejoin)
+  - [Array.prototype.keys()](#arrayprototypekeys)
+  - [Array.prototype.lastIndexOf()](#arrayprototypelastindexof)
+  - [Array.prototype.map()](#arrayprototypemap)
 
 ## Definición
 
@@ -334,4 +338,90 @@ const colores = ['rojo', 'azul', 'amarillo'];
 
 console.log(colores.indexOf('azul'));    // Retorna 1
 console.log(colores.indexOf('verde'));   // Retorna -1
+```
+
+## Array.prototype.join()
+
+Convierte todos los elementos de un array a string y los une utilizando el separador que recibe como argumento.
+
+**Sintaxis**
+```typescript
+arrayNombre.join(separador)
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+const cadena = frutas.join(', ');
+
+console.log(cadena); // Retorna "manzana, banana, pera"
+```
+
+**Notas**
+- Si no se proporciona un separador, se utiliza una coma por defecto.
+
+## Array.prototype.keys()
+
+Retorna un objeto Array Iterator que contiene los índices de los elementos del array.
+
+**Sintaxis**
+```typescript
+arrayNombre.keys()
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul', 'amarillo'];
+
+const iterator = colores.keys();
+
+console.log(iterator.next().value); // Retorna 0
+console.log(iterator.next().value); // Retorna 1
+console.log(iterator.next().value); // Retorna 2
+```
+
+**Notas**
+- Cada llamada al método `next()` del iterador retorna el siguiente índice.
+
+## Array.prototype.lastIndexOf()
+
+Retorna el último índice en el que se encuentra un determinado elemento en un array, retorna -1 si no se encuentra.
+
+**Sintaxis**
+```typescript
+arrayNombre.lastIndexOf(elemento, indiceInicio)
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul', 'amarillo', 'rojo'];
+
+console.log(colores.lastIndexOf('rojo')); // Retorna 3
+console.log(colores.lastIndexOf('verde')); // Retorna -1
+console.log(colores.lastIndexOf('amarillo', 2)); // Retorna 2
+```
+
+**Notas**
+- La busqueda se hace de derecha a izquierda o desde el último elemento hasta el primero.
+- Se puede pasar un segundo argumento para indicar donde se comienza a realizar la busqueda.
+
+## Array.prototype.map()
+
+Crea un nuevo array con los resultados de aplicar una función de callback a cada elemento del array.
+
+**Sintaxis**
+```typescript
+arrayNombre.map(function callback(currentValue: any, index: number, array: any[]): any {
+  // elemento para retornar
+}[, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3];
+
+const numerosDoble = numeros.map((numero) => numero * 2);
+
+console.log(numerosDoble); // Retorna [2, 4, 6]
 ```
