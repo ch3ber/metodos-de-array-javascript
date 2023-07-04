@@ -38,6 +38,10 @@
   - [Array.prototype.shift()](#arrayprototypeshift)
   - [Array.prototype.slice()](#arrayprototypeslice)
   - [Array.prototype.some()](#arrayprototypesome)
+  - [Array.prototype.sort()](#arrayprototypesort)
+  - [Array.prototype.splice()](#arrayprototypesplice)
+  - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
+  - [Array.prototype.toString()](#arrayprototypetostring)
 
 ## Definición
 
@@ -611,3 +615,91 @@ console.log(tienePares); // Retorna true
 
 **Notas**
 - Retorna `true` si al menos un elemento cumple con la condición, de lo contrario, retorna `false`.
+
+## Array.prototype.sort()
+
+Ordena los elementos del array de acuerdo a la función de ordenamiento especificada.
+
+**Sintaxis**
+```typescript
+arrayNombre.sort(function funcionOrdenamiento (aElement, bElement): number {
+  // condicion de ordenamiento
+})
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+frutas.sort();
+
+console.log(frutas); // Retorna ['banana', 'manzana', 'pera']
+```
+
+**Notas**
+- Ordena los elementos del array de forma lexicográfica (orden alfabético) por defecto.
+- Modifica el array original.
+
+## Array.prototype.splice()
+
+Cambia el contenido de un array eliminando, reemplazando o agregando elementos. Retorna un array que contiene los elementos eliminados.
+
+**Sintaxis**
+```javascript
+arrayNombre.splice(indiceInicio, cantidadEliminar, elemento1: any, ..., elementoN)
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul', 'amarillo'];
+
+const valorEliminado = colores.splice(1, 1, 'verde', 'naranja');
+
+console.log(valorEliminado) // Retorna ['azul']
+console.log(colores); // Retorna ['rojo', 'verde', 'naranja', 'amarillo']
+```
+
+**Notas**
+- Modifica el array original.
+
+## Array.prototype.toLocaleString()
+
+Retorna un string que representa los elementos del array en el formato del lenguaje local.
+
+**Sintaxis**
+```javascript
+arrayNombre.toLocaleString(locales, opciones)
+```
+
+**Ejemplo**
+```javascript
+const fechas = [1, 'enero 2023', new  Date('21 Dec 1997 14:12:00 UTC')]
+
+const fechasLocales = fechas.toLocaleString('en', { timeZone: 'UTC' })
+
+console.log(fechasLocales) // retorna '1,enero 2023,12/21/1997, 2:12:00 PM'
+```
+
+**Notas**
+- Los locales y opciones pueden ser especificados para controlar el formato de la cadena resultante.
+
+## Array.prototype.toString()
+
+Retorna un string con los elementos del array.
+
+**Sintaxis**
+```javascript
+arrayNombre.toString()
+```
+
+**Ejemplo**
+```javascript
+const frutas = ['manzana', 'banana', 'pera'];
+
+const cadena = frutas.toString();
+
+console.log(cadena); // Retorna "manzana,banana,pera"
+```
+
+**Notas**
+- Los elementos son separados por comas sin espacios.
