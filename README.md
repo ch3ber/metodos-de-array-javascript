@@ -54,7 +54,7 @@ Facilitan el uso y la manipulación de los arrays. Permiten modificar y leer val
 Retorna el elemento del índice que se recibe como argumento.
 
 **Sintaxis**
-```javascript
+```typescript
 arrayNombre.at(indice)
 ```
 
@@ -76,7 +76,7 @@ console.log(colores.at(5)); // Retorna undefined
 Combina dos o más arrays y devuelve un nuevo array resultante de la concatenación.
 
 **Sintaxis**
-```javascript
+```typescript
 array1.concat(array2, array3, ..., arrayN)
 ```
 
@@ -99,7 +99,7 @@ console.log(alimentos); // Retorna ['manzana', 'banana', 'zanahoria', 'papa']
 Copia una porción de elementos dentro del array, sobrescribiendo los elementos existentes, sin cambiar la longitud del array.
 
 **Sintaxis**
-```javascript
+```typescript
 arrayNombre.copyWithin(target, start, end)
 ```
 
@@ -123,7 +123,7 @@ console.log(numeros); // Retorna [4, 5, 3, 4, 5]
 Retorna un nuevo objeto Array Iterator que contiene pares clave/valor para cada índice en el array.
 
 **Sintaxis**
-```javascript
+```typescript
 arrayNombre.entries()
 ```
 
@@ -146,8 +146,10 @@ console.log(iterator.next().value); // Retorna [2, 'amarillo']
 Verifica si todos los elementos en el array cumplen con una condición especificada.
 
 **Sintaxis**
-```javascript
-arrayNombre.every(callback[(currentValue, index, array) => boolean][, thisArg])
+```typescript
+arrayNombre.every(function callback(currentValue, index, array): boolean {
+  // condición para retornar
+}, [, thisArg])
 ```
 
 **Ejemplo**
@@ -169,7 +171,9 @@ Crea array con todos los elementos que cumplan una condición.
 
 **Sintaxis**
 ```typescript
-arrayNombre.filter(callback[(currentValue, index, array) => boolean][, thisArg])
+arrayNombre.filter(function callback(currentValue, index, array): boolean {
+  // retornar condición para filtrar
+}, [, thisArg])
 ```
 
 **Ejemplo**
@@ -192,7 +196,9 @@ Retorna el primer elemento del array que cumpla con una condición.
 
 **Sintaxis**
 ```typescript
-arrayNombre.find(callback[(element, index, array]) => boolean][, thisArg])
+arrayNombre.find(function callback(element, index, array): boolean {
+  // retornar condición para encontrar elemento
+}, [, thisArg])
 ```
 
 **Ejemplo**
@@ -212,8 +218,10 @@ console.log(frutaEncontrada); // Retorna 'banana'
 Retorna el índice del primer elemento del array que cumpla con una condición.
 
 **Sintaxis**
-```javascript
-arrayNombre.findIndex(callback[(element, index, array) => boolean][thisArg])
+```typescript
+arrayNombre.findIndex(function callback(element, index, array): boolean {
+  // retornar condición para encontrar elemento
+}, [thisArg])
 ```
 
 **Ejemplo**
@@ -233,8 +241,8 @@ console.log(indice); // Retorna 3 porque 40 es mayor que 30
 Crea un array que es una versión aplanada (flatten) del array original, un array con todos los elementos de los subarrays concatenados de manera recursiva hasta la profundidad especificada, elimina la anidación de arrays.
 
 **Sintaxis**
-```javascript
-arrayNombre.flat([depth])
+```typescript
+arrayNombre.flat(depth: number)
 ```
 
 **Ejemplo**
@@ -254,8 +262,10 @@ console.log(numerosAplanados); // Retorna [1, 2, [3, [4]]]
 Combina los pasos de `map()` y `flat()` en un solo método. Aplica una función a cada elemento y luego aplana el resultado un nivel.
 
 **Sintaxis**
-```javascript
-arrayNombre.flatMap(callback[(currentValue, index, array) => any][, thisArg])
+```typescript
+arrayNombre.flatMap(function callback(currentValue, index, array): any {
+  // elemento para retornar
+},[, thisArg])
 ```
 
 **Ejemplo**
@@ -272,8 +282,10 @@ console.log(numerosDuplicados); // Retorna [1, 1, 2, 2, 3, 3]
 Ejecuta un callback por cada elemento del array. No retorna ningún valor y no modifica el array original.
 
 **Sintaxis**
-```javascript
-arrayNombre.forEach(callback[(currentValue, index, array) => void][, thisArg])
+```typescript
+arrayNombre.forEach(function callback(currentValue, index, array): void {
+  // lógica para ejecutar por cada elemento
+}, [, thisArg])
 ```
 
 **Ejemplo**
@@ -295,7 +307,7 @@ frutas.forEach((fruta) => {
 Determina si el array incluye un elemento, si se encuentra devuelve `true` de lo contrario devolverá `false`.
 
 **Sintaxis**
-```javascript
+```typescript
 arrayNombre.includes(elemento, indiceInicio)
 ```
 
@@ -312,7 +324,7 @@ console.log(numeros.includes(6)); // Retorna false
 Retorna el primer índice del elemento especificado o -1 si no se encuentra.
 
 **Sintaxis**
-```javascript
+```typescript
 arrayNombre.indexOf(elemento, indiceInicio)
 ```
 
