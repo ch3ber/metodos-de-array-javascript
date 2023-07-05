@@ -13,47 +13,49 @@
   - [Sintaxis](#sintaxis)
   - [Métodos aprobados por el TC39](#métodos-aprobados-por-el-tc39)
 - [Métodos](#métodos)
-  - [Array.prototype.at()](#arrayprototypeat)
-  - [Array.prototype.concat()](#arrayprototypeconcat)
-  - [Array.prototype.copyWithin()](#arrayprototypecopywithin)
-  - [Array.prototype.entries()](#arrayprototypeentries)
-  - [Array.prototype.every()](#arrayprototypeevery)
-  - [Array.prototype.fill()](#arrayprototypefill)
-  - [Array.prototype.filter()](#arrayprototypefilter)
-  - [Array.prototype.find()](#arrayprototypefind)
-  - [Array.prototype.findIndex()](#arrayprototypefindindex)
-  - [Array.prototype.findLast()](#arrayprototypefindlast)
-  - [Array.prototype.findLastIndex()](#arrayprototypefindlastindex)
-  - [Array.prototype.flat()](#arrayprototypeflat)
-  - [Array.prototype.flatMap()](#arrayprototypeflatmap)
-  - [Array.prototype.forEach()](#arrayprototypeforeach)
-  - [Array.from()](#arrayfrom)
-  - [Array.prototype.includes()](#arrayprototypeincludes)
-  - [Array.prototype.indexOf()](#arrayprototypeindexof)
-  - [Array.isArray()](#arrayisarray)
-  - [Array.prototype.join()](#arrayprototypejoin)
-  - [Array.prototype.keys()](#arrayprototypekeys)
-  - [Array.prototype.lastIndexOf()](#arrayprototypelastindexof)
-  - [Array.prototype.map()](#arrayprototypemap)
-  - [Array.of()](#arrayof)
-  - [Array.prototype.pop()](#arrayprototypepop)
-  - [Array.prototype.push()](#arrayprototypepush)
-  - [Array.prototype.reduce()](#arrayprototypereduce)
-  - [Array.prototype.reduceRight()](#arrayprototypereduceright)
-  - [Array.prototype.reverse()](#arrayprototypereverse)
-  - [Array.prototype.shift()](#arrayprototypeshift)
-  - [Array.prototype.slice()](#arrayprototypeslice)
-  - [Array.prototype.some()](#arrayprototypesome)
-  - [Array.prototype.sort()](#arrayprototypesort)
-  - [Array.prototype.splice()](#arrayprototypesplice)
-  - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
-  - [Array.prototype.toReversed()](#arrayprototypetoreversed)
-  - [Array.prototype.toSorted()](#arrayprototypetosorted)
-  - [Array.prototype.toSpliced()](#arrayprototypetospliced)
-  - [Array.prototype.toString()](#arrayprototypetostring)
-  - [Array.prototype.unshift()](#arrayprototypeunshift)
-  - [Array.prototype.values()](#arrayprototypevalues)
-  - [Array.prototype.with()](#arrayprototypewith)
+  - [Métodos de Array](#métodos-de-array)
+    - [Array.from()](#arrayfrom)
+    - [Array.isArray()](#arrayisarray)
+    - [Array.of()](#arrayof)
+  - [Métodos de Array.prototype](#métodos-de-arrayprototype)
+    - [Array.prototype.at()](#arrayprototypeat)
+    - [Array.prototype.concat()](#arrayprototypeconcat)
+    - [Array.prototype.copyWithin()](#arrayprototypecopywithin)
+    - [Array.prototype.entries()](#arrayprototypeentries)
+    - [Array.prototype.every()](#arrayprototypeevery)
+    - [Array.prototype.fill()](#arrayprototypefill)
+    - [Array.prototype.filter()](#arrayprototypefilter)
+    - [Array.prototype.find()](#arrayprototypefind)
+    - [Array.prototype.findIndex()](#arrayprototypefindindex)
+    - [Array.prototype.findLast()](#arrayprototypefindlast)
+    - [Array.prototype.findLastIndex()](#arrayprototypefindlastindex)
+    - [Array.prototype.flat()](#arrayprototypeflat)
+    - [Array.prototype.flatMap()](#arrayprototypeflatmap)
+    - [Array.prototype.forEach()](#arrayprototypeforeach)
+    - [Array.prototype.includes()](#arrayprototypeincludes)
+    - [Array.prototype.indexOf()](#arrayprototypeindexof)
+    - [Array.prototype.join()](#arrayprototypejoin)
+    - [Array.prototype.keys()](#arrayprototypekeys)
+    - [Array.prototype.lastIndexOf()](#arrayprototypelastindexof)
+    - [Array.prototype.map()](#arrayprototypemap)
+    - [Array.prototype.pop()](#arrayprototypepop)
+    - [Array.prototype.push()](#arrayprototypepush)
+    - [Array.prototype.reduce()](#arrayprototypereduce)
+    - [Array.prototype.reduceRight()](#arrayprototypereduceright)
+    - [Array.prototype.reverse()](#arrayprototypereverse)
+    - [Array.prototype.shift()](#arrayprototypeshift)
+    - [Array.prototype.slice()](#arrayprototypeslice)
+    - [Array.prototype.some()](#arrayprototypesome)
+    - [Array.prototype.sort()](#arrayprototypesort)
+    - [Array.prototype.splice()](#arrayprototypesplice)
+    - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
+    - [Array.prototype.toReversed()](#arrayprototypetoreversed)
+    - [Array.prototype.toSorted()](#arrayprototypetosorted)
+    - [Array.prototype.toSpliced()](#arrayprototypetospliced)
+    - [Array.prototype.toString()](#arrayprototypetostring)
+    - [Array.prototype.unshift()](#arrayprototypeunshift)
+    - [Array.prototype.values()](#arrayprototypevalues)
+    - [Array.prototype.with()](#arrayprototypewith)
 
 ## Definición
 
@@ -77,7 +79,71 @@ En [este link](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-pr
 
 Facilitan el uso y la manipulación de los arrays. Permiten modificar y leer valores en los arrays.
 
-## Array.prototype.at()
+## Métodos de Array
+
+### Array.from()
+
+Crea un nuevo array a partir de un objeto iterable como un `NodeList`, un string o de un objeto similar a un array.
+
+**Sintaxis**
+```typescript
+Array.from(objetoIterable, function mapeo(element, index) {
+  // función que se aplica a cada elemento del objeto iterable antes de agregarlo al nuevo array.
+}, thisArg)
+```
+
+**Ejemplo**
+```javascript
+const cadena = 'Hola';
+
+const arrayCadena = Array.from(cadena);
+
+console.log(arrayCadena); // Retorna ['H', 'o', 'l', 'a']
+```
+### Array.isArray()
+
+Determina si un valor pasado como argumento es un array.
+
+**Sintaxis**
+```typescript
+Array.isArray(obj)
+```
+
+**Ejemplo**
+```javascript
+Array.isArray([1, 2, 3]);  // true
+Array.isArray({foo: 123}); // false
+Array.isArray('foobar');   // false
+Array.isArray(undefined);  // false
+```
+
+**Notas**
+- Array.isArray es más recomendado que instanceof porque funciona a través de *iframes*
+
+### Array.of()
+
+Crea una nueva instancia Array con un número variable de elementos pasados como argumento, independientemente del número o del tipo.
+
+**Sintaxis**
+```typescript
+Array.of(elemento0, elemento1, ..., elementoN)
+```
+
+**Ejemplo**
+```javascript
+Array.of(7);       // [7]
+Array.of(1, 2, 3); // [1, 2, 3]
+
+Array(7);          // [ , , , , , , ]
+Array(1, 2, 3);    // [1, 2, 3]
+```
+
+**Notas**
+- La diferencia entre Array.of() y el constructor Array reside en como maneja los parámetros de tipo entero: Array.of(7) crea un array con un solo elemento, 7, mientras que Array(7) crea un array vacío con una propiedad length de 7 (esto implica un array de 7 ranuras vacías, no ranuras con valores undefined).
+
+## Métodos de Array.prototype
+
+### Array.prototype.at()
 
 Retorna el elemento del índice que se recibe como argumento.
 
@@ -99,7 +165,7 @@ console.log(colores.at(5)); // Retorna undefined
 - Si el índice es negativo, se contará desde el último elemento del array.
 - Si el índice está fuera de los límites del array, se devuelve `undefined`.
 
-## Array.prototype.concat()
+### Array.prototype.concat()
 
 Combina dos o más arrays y devuelve un nuevo array resultante de la concatenación.
 
@@ -122,7 +188,7 @@ console.log(alimentos); // Retorna ['manzana', 'banana', 'zanahoria', 'papa']
 - No modifica los arrays originales, sino que devuelve un nuevo array.
 - Se pueden pasar múltiples arrays como argumentos para concatenarlos en el orden en que se proporcionan.
 
-## Array.prototype.copyWithin()
+### Array.prototype.copyWithin()
 
 Copia una porción de elementos dentro del array, sobrescribiendo los elementos existentes, sin cambiar la longitud del array.
 
@@ -146,7 +212,7 @@ console.log(numeros); // Retorna [4, 5, 3, 4, 5]
 - `start` (opcional) índice de inicio desde donde se copiarán los elementos (por defecto es 0).
 - `end` (opcional) índice de finalización hasta donde se copiarán los elementos (por defecto es la longitud del array).
 
-## Array.prototype.entries()
+### Array.prototype.entries()
 
 Retorna un nuevo objeto Array Iterator que contiene pares clave/valor para cada índice en el array.
 
@@ -170,7 +236,7 @@ console.log(iterator.next().value); // Retorna [2, 'amarillo']
 - Cada elemento del iterador es un array con dos elementos: el índice y el valor correspondiente.
 - Puede ser utilizado en un bucle `for...of` para iterar sobre los valores del array.
 
-## Array.prototype.every()
+### Array.prototype.every()
 
 Verifica si todos los elementos en el array cumplen con una condición especificada.
 
@@ -194,7 +260,7 @@ console.log(mayoresDeEdad); // Retorna true
 - Ejecuta la función de callback una vez por cada elemento del array hasta que se encuentre un elemento que no cumpla la condición.
 - Devuelve `true` si todos los elementos cumplen con la condición, de lo contrario, devuelve `false`.
 
-## Array.prototype.fill()
+### Array.prototype.fill()
 
 Rellena todos los elementos del array con un solo valor, desde un índice de inicio hasta un índice de fin.
 
@@ -216,7 +282,7 @@ console.log(numeros); // Retorna [1, 2, 0, 0, 5]
 - Si no se especifica el índice de inicio, se utiliza 0 como valor por defecto.
 - Si no se especifica el índice de fin, se utiliza la longitud del array como valor por defecto.
 
-## Array.prototype.filter()
+### Array.prototype.filter()
 
 Crea array con todos los elementos que cumplan una condición.
 
@@ -241,7 +307,7 @@ console.log(numerosPares); // Retorna [2, 4]
 - Crea un nuevo array con los elementos que cumplan la condición del callback.
 - No modifica el array original.
 
-## Array.prototype.find()
+### Array.prototype.find()
 
 Retorna el primer elemento del array que cumpla con una condición.
 
@@ -264,7 +330,7 @@ console.log(frutaEncontrada); // Retorna 'banana'
 **Notas**
 - Retorna `undefined` si no se encuentra ningun elemento que cumpla con la condición.
 
-## Array.prototype.findIndex()
+### Array.prototype.findIndex()
 
 Retorna el índice del primer elemento del array que cumpla con una condición.
 
@@ -287,7 +353,7 @@ console.log(indice); // Retorna 3 porque 40 es mayor que 30
 **Notas**
 - Retorna -1 si no se encuentra ningun elemento que cumpla con la condición.
 
-## Array.prototype.findLast()
+### Array.prototype.findLast()
 
 Retorna el último elemento del array que cumpla con la condición escrita en la función de prueba.
 
@@ -310,7 +376,7 @@ console.log(ultimoPar); // Retorna 4
 **Notas**
 - Retorna `undefined` si ningún elemento cumple con la condición.
 
-## Array.prototype.findLastIndex()
+### Array.prototype.findLastIndex()
 
 Retorna el índice del último elemento del array que cumpla con la condición escrita en la función de prueba.
 
@@ -333,7 +399,7 @@ console.log(ultimoIndicePar); // Retorna 3
 **Notas**
 - Retorna -1 si ningún elemento cumple con la condición.
 
-## Array.prototype.flat()
+### Array.prototype.flat()
 
 Crea un array que es una versión aplanada (flatten) del array original, un array con todos los elementos de los subarrays concatenados de manera recursiva hasta la profundidad especificada, elimina la anidación de arrays.
 
@@ -354,7 +420,7 @@ console.log(numerosAplanados); // Retorna [1, 2, [3, [4]]]
 **Notas**
 - Por defecto, `depth` es 1, lo que significa que solo se aplana un nivel. Se puede especificar un valor mayor para aplanar aún más.
 
-## Array.prototype.flatMap()
+### Array.prototype.flatMap()
 
 Combina los pasos de `map()` y `flat()` en un solo método. Aplica una función a cada elemento y luego aplana el resultado un nivel.
 
@@ -374,7 +440,7 @@ const numerosDuplicados = numeros.flatMap((numero) => [numero, numero]);
 console.log(numerosDuplicados); // Retorna [1, 1, 2, 2, 3, 3]
 ```
 
-## Array.prototype.forEach()
+### Array.prototype.forEach()
 
 Ejecuta un callback por cada elemento del array. No retorna ningún valor y no modifica el array original.
 
@@ -399,27 +465,7 @@ frutas.forEach((fruta) => {
 // pera
 ```
 
-## Array.from()
-
-Crea un nuevo array a partir de un objeto iterable como un `NodeList`, un string o de un objeto similar a un array.
-
-**Sintaxis**
-```typescript
-Array.from(objetoIterable, function mapeo(element, index) {
-  // función que se aplica a cada elemento del objeto iterable antes de agregarlo al nuevo array.
-}, thisArg)
-```
-
-**Ejemplo**
-```javascript
-const cadena = 'Hola';
-
-const arrayCadena = Array.from(cadena);
-
-console.log(arrayCadena); // Retorna ['H', 'o', 'l', 'a']
-```
-
-## Array.prototype.includes()
+### Array.prototype.includes()
 
 Determina si el array incluye un elemento, si se encuentra devuelve `true` de lo contrario devolverá `false`.
 
@@ -436,7 +482,7 @@ console.log(numeros.includes(3)); // Retorna true
 console.log(numeros.includes(6)); // Retorna false
 ```
 
-## Array.prototype.indexOf()
+### Array.prototype.indexOf()
 
 Retorna el primer índice del elemento especificado o -1 si no se encuentra.
 
@@ -453,27 +499,7 @@ console.log(colores.indexOf('azul'));    // Retorna 1
 console.log(colores.indexOf('verde'));   // Retorna -1
 ```
 
-## Array.isArray()
-
-Determina si un valor pasado como argumento es un array.
-
-**Sintaxis**
-```typescript
-Array.isArray(obj)
-```
-
-**Ejemplo**
-```javascript
-Array.isArray([1, 2, 3]);  // true
-Array.isArray({foo: 123}); // false
-Array.isArray('foobar');   // false
-Array.isArray(undefined);  // false
-```
-
-**Notas**
-- Array.isArray es más recomendado que instanceof porque funciona a través de *iframes*
-
-## Array.prototype.join()
+### Array.prototype.join()
 
 Convierte todos los elementos de un array a string y los une utilizando el separador que recibe como argumento.
 
@@ -494,7 +520,7 @@ console.log(cadena); // Retorna "manzana, banana, pera"
 **Notas**
 - Si no se proporciona un separador, se utiliza una coma por defecto.
 
-## Array.prototype.keys()
+### Array.prototype.keys()
 
 Retorna un objeto Array Iterator que contiene los índices de los elementos del array.
 
@@ -517,7 +543,7 @@ console.log(iterator.next().value); // Retorna 2
 **Notas**
 - Cada llamada al método `next()` del iterador retorna el siguiente índice.
 
-## Array.prototype.lastIndexOf()
+### Array.prototype.lastIndexOf()
 
 Retorna el último índice en el que se encuentra un determinado elemento en un array, retorna -1 si no se encuentra.
 
@@ -539,7 +565,7 @@ console.log(colores.lastIndexOf('amarillo', 2)); // Retorna 2
 - La busqueda se hace de derecha a izquierda o desde el último elemento hasta el primero.
 - Se puede pasar un segundo argumento para indicar donde se comienza a realizar la busqueda.
 
-## Array.prototype.map()
+### Array.prototype.map()
 
 Crea un nuevo array con los resultados de aplicar una función de callback a cada elemento del array.
 
@@ -559,28 +585,7 @@ const numerosDoble = numeros.map((numero) => numero * 2);
 console.log(numerosDoble); // Retorna [2, 4, 6]
 ```
 
-## Array.of()
-
-Crea una nueva instancia Array con un número variable de elementos pasados como argumento, independientemente del número o del tipo.
-
-**Sintaxis**
-```typescript
-Array.of(elemento0, elemento1, ..., elementoN)
-```
-
-**Ejemplo**
-```javascript
-Array.of(7);       // [7]
-Array.of(1, 2, 3); // [1, 2, 3]
-
-Array(7);          // [ , , , , , , ]
-Array(1, 2, 3);    // [1, 2, 3]
-```
-
-**Notas**
-- La diferencia entre Array.of() y el constructor Array reside en como maneja los parámetros de tipo entero: Array.of(7) crea un array con un solo elemento, 7, mientras que Array(7) crea un array vacío con una propiedad length de 7 (esto implica un array de 7 ranuras vacías, no ranuras con valores undefined).
-
-## Array.prototype.pop()
+### Array.prototype.pop()
 
 Elimina el último elemento del array y lo retorna.
 
@@ -602,7 +607,7 @@ console.log(frutas);      // Retorna ['manzana', 'banana']
 **Notas**
 - Modifica el array original.
 
-## Array.prototype.push()
+### Array.prototype.push()
 
 Agrega uno o más elementos al final del array y retorna la longitud del array.
 
@@ -624,7 +629,7 @@ console.log(colores);          // Retorna ['rojo', 'azul', 'amarillo', 'verde']
 **Notas**
 - Modifica el array original.
 
-## Array.prototype.reduce()
+### Array.prototype.reduce()
 
 Aplica un callback a un acumulador y a cada elemento del array (de izquierda a derecha) para reducirlo a un único valor, que al final es retornado.
 
@@ -647,7 +652,7 @@ console.log(suma); // Retorna 15
 **Notas**
 - El acumulador se actualiza en cada iteración.
 
-## Array.prototype.reduceRight()
+### Array.prototype.reduceRight()
 
 Aplica un callback a un acumulador y a cada elemento del array (de derecha a izquierda) para reducirlo a un único valor, que al final es retornado.
 
@@ -670,7 +675,7 @@ console.log(resta); // Retorna -5
 **Notas**
 - El acumulador se actualiza en cada iteración.
 
-## Array.prototype.reverse()
+### Array.prototype.reverse()
 
 Invierte el orden de los elementos del array.
 
@@ -691,7 +696,7 @@ console.log(colores); // Retorna ['amarillo', 'azul', 'rojo']
 **Notas**
 - Modifica el array original.
 
-## Array.prototype.shift()
+### Array.prototype.shift()
 
 Elimina el primer elemento del array y lo retorna.
 
@@ -713,7 +718,7 @@ console.log(frutas);       // Retorna ['banana', 'pera']
 **Notas**
 - Modifica el array original.
 
-## Array.prototype.slice()
+### Array.prototype.slice()
 
 Crea una copia de una porción del array original en un nuevo array.
 
@@ -735,7 +740,7 @@ console.log(subArray); // Retorna [3, 4]
 - Si no se proporciona el índice de fin, se copian todos los elementos a partir del índice de inicio hasta el final del array.
 - No modifica el array original.
 
-## Array.prototype.some()
+### Array.prototype.some()
 
 Verifica si al algún un elemento del array cumple con una condición.
 
@@ -758,7 +763,7 @@ console.log(tienePares); // Retorna true
 **Notas**
 - Retorna `true` si al menos un elemento cumple con la condición, de lo contrario, retorna `false`.
 
-## Array.prototype.sort()
+### Array.prototype.sort()
 
 Ordena los elementos del array de acuerdo a la función de ordenamiento especificada.
 
@@ -782,7 +787,7 @@ console.log(frutas); // Retorna ['banana', 'manzana', 'pera']
 - Ordena los elementos del array de forma lexicográfica (orden alfabético) por defecto.
 - Modifica el array original.
 
-## Array.prototype.splice()
+### Array.prototype.splice()
 
 Cambia el contenido de un array eliminando, reemplazando o agregando elementos. Retorna un array que contiene los elementos eliminados.
 
@@ -804,7 +809,7 @@ console.log(colores); // Retorna ['rojo', 'verde', 'naranja', 'amarillo']
 **Notas**
 - Modifica el array original.
 
-## Array.prototype.toLocaleString()
+### Array.prototype.toLocaleString()
 
 Retorna un string que representa los elementos del array en el formato del lenguaje local.
 
@@ -825,7 +830,7 @@ console.log(fechasLocales) // retorna '1,enero 2023,12/21/1997, 2:12:00 PM'
 **Notas**
 - Los locales y opciones pueden ser especificados para controlar el formato de la cadena resultante.
 
-## Array.prototype.toReversed()
+### Array.prototype.toReversed()
 
 Es la copia del método reverse(). Devuelve una nueva matriz con los elementos en orden inverso.
 
@@ -844,7 +849,7 @@ console.log(reversedItems); // [3, 2, 1]
 console.log(items); // [1, 2, 3]
 ```
 
-## Array.prototype.toSorted()
+### Array.prototype.toSorted()
 
 Es la versión de copia del método sort(). Devuelve un nuevo array con los elementos ordenados en orden ascendente por defecto.
 
@@ -862,7 +867,7 @@ console.log(sortedMonths); // ['Dec', 'Feb', 'Jan', 'Mar']
 console.log(months); // ['Mar', 'Jan', 'Feb', 'Dec']
 ```
 
-## Array.prototype.toSpliced()
+### Array.prototype.toSpliced()
 
 Es la versión de copia del método splice(). Devuelve un nuevo array con algunos elementos eliminados y/o reemplazados en un índice dado.
 
@@ -883,7 +888,7 @@ console.log(meses2); // ["Jan", "Feb", "Mar", "Apr", "May"]
 console.log(meses); // ["Jan", "Mar", "Apr", "May"]
 ```
 
-## Array.prototype.toString()
+### Array.prototype.toString()
 
 Retorna un string con los elementos del array.
 
@@ -904,7 +909,7 @@ console.log(cadena); // Retorna "manzana,banana,pera"
 **Notas**
 - Los elementos son separados por comas sin espacios.
 
-## Array.prototype.unshift()
+### Array.prototype.unshift()
 
 Agrega uno o más elementos al inicio del array y retorna la nueva longitud del array.
 
@@ -926,7 +931,7 @@ console.log(colores);       // Retorna ['amarillo', 'verde', 'rojo', 'azul']
 **Notas**
 - Modifica el array original.
 
-## Array.prototype.values()
+### Array.prototype.values()
 
 Retorna un nuevo objeto iterador que contiene los valores de los elementos del array.
 
@@ -949,7 +954,7 @@ console.log(iterador.next().value); // Retorna 'amarillo'
 **Notas**
 - Puede ser utilizado en un bucle `for...of` para iterar sobre los valores del array.
 
-## Array.prototype.with()
+### Array.prototype.with()
 
 Recibe un índice y un valor/elemento. Retorna un nuevo array remplazando el elemento en el índice especificado por el nuevo elemento.
 
