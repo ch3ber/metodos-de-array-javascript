@@ -18,6 +18,7 @@
   - [Array.prototype.copyWithin()](#arrayprototypecopywithin)
   - [Array.prototype.entries()](#arrayprototypeentries)
   - [Array.prototype.every()](#arrayprototypeevery)
+  - [Array.prototype.fill()](#arrayprototypefill)
   - [Array.prototype.filter()](#arrayprototypefilter)
   - [Array.prototype.find()](#arrayprototypefind)
   - [Array.prototype.findIndex()](#arrayprototypefindindex)
@@ -180,6 +181,28 @@ console.log(mayoresDeEdad); // Retorna true
 **Notas**
 - Ejecuta la función de callback una vez por cada elemento del array hasta que se encuentre un elemento que no cumpla la condición.
 - Devuelve `true` si todos los elementos cumplen con la condición, de lo contrario, devuelve `false`.
+
+## Array.prototype.fill()
+
+Rellena todos los elementos del array con un solo valor, desde un índice de inicio hasta un índice de fin.
+
+**Sintaxis**
+```javascript
+arrayNombre.fill(valor, indiceInicio, indiceFin)
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+numeros.fill(0, 2, 4);
+
+console.log(numeros); // Retorna [1, 2, 0, 0, 5]
+```
+
+**Notas**
+- Si no se especifica el índice de inicio, se utiliza 0 como valor por defecto.
+- Si no se especifica el índice de fin, se utiliza la longitud del array como valor por defecto.
 
 ## Array.prototype.filter()
 
