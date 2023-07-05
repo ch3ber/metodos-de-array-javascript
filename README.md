@@ -22,6 +22,8 @@
   - [Array.prototype.filter()](#arrayprototypefilter)
   - [Array.prototype.find()](#arrayprototypefind)
   - [Array.prototype.findIndex()](#arrayprototypefindindex)
+  - [Array.prototype.findLast()](#arrayprototypefindlast)
+  - [Array.prototype.findLastIndex()](#arrayprototypefindlastindex)
   - [Array.prototype.flat()](#arrayprototypeflat)
   - [Array.prototype.flatMap()](#arrayprototypeflatmap)
   - [Array.prototype.forEach()](#arrayprototypeforeach)
@@ -274,6 +276,52 @@ console.log(indice); // Retorna 3 porque 40 es mayor que 30
 
 **Notas**
 - Retorna -1 si no se encuentra ningun elemento que cumpla con la condición.
+
+## Array.prototype.findLast()
+
+Retorna el último elemento del array que cumpla con la condición escrita en la función de prueba.
+
+**Sintaxis**
+```typescript
+arrayNombre.findLast(function funcionPrueba (element, index, array): boolean {
+  // devuelve un valor verdadero para indicar que se ha encontrado un elemento coincidente y un valor falso en caso contrario.
+},[, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const ultimoPar = numeros.findLast((numero) => numero % 2 === 0);
+
+console.log(ultimoPar); // Retorna 4
+```
+
+**Notas**
+- Retorna `undefined` si ningún elemento cumple con la condición.
+
+## Array.prototype.findLastIndex()
+
+Retorna el índice del último elemento del array que cumpla con la condición escrita en la función de prueba.
+
+**Sintaxis**
+```javascript
+arrayNombre.findLastIndex(function funcionPrueba (element, index, array): boolean {
+  // devuelve un valor verdadero para indicar que se ha encontrado un elemento coincidente y un valor falso en caso contrario.
+},[, thisArg])
+```
+
+**Ejemplo**
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+const ultimoIndicePar = numeros.findLastIndex((numero) => numero % 2 === 0);
+
+console.log(ultimoIndicePar); // Retorna 3
+```
+
+**Notas**
+- Retorna -1 si ningún elemento cumple con la condición.
 
 ## Array.prototype.flat()
 
