@@ -45,6 +45,7 @@
   - [Array.prototype.sort()](#arrayprototypesort)
   - [Array.prototype.splice()](#arrayprototypesplice)
   - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
+  - [Array.prototype.toSpliced()](#arrayprototypetospliced)
   - [Array.prototype.toString()](#arrayprototypetostring)
   - [Array.prototype.unshift()](#arrayprototypeunshift)
   - [Array.prototype.values()](#arrayprototypevalues)
@@ -778,6 +779,27 @@ console.log(fechasLocales) // retorna '1,enero 2023,12/21/1997, 2:12:00 PM'
 
 **Notas**
 - Los locales y opciones pueden ser especificados para controlar el formato de la cadena resultante.
+
+## Array.prototype.toSpliced()
+
+Es la versión de copia del método splice(). Devuelve un nuevo array con algunos elementos eliminados y/o reemplazados en un índice dado.
+
+**Sintaxis**
+```javascript
+toSpliced(start, deleteCount, item1, ..., itemN)
+```
+
+**Ejemplo**
+```javascript
+const meses = ["Jan", "Mar", "Apr", "May"];
+
+// insertar elemento en el indice 1
+const meses2 = meses.toSpliced(1, 0, "Feb");
+console.log(meses2); // ["Jan", "Feb", "Mar", "Apr", "May"]
+
+// el array original no es modificado
+console.log(meses); // ["Jan", "Mar", "Apr", "May"]
+```
 
 ## Array.prototype.toString()
 
