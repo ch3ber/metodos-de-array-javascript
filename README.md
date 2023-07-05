@@ -45,6 +45,7 @@
   - [Array.prototype.sort()](#arrayprototypesort)
   - [Array.prototype.splice()](#arrayprototypesplice)
   - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
+  - [Array.prototype.toSorted()](#arrayprototypetosorted)
   - [Array.prototype.toSpliced()](#arrayprototypetospliced)
   - [Array.prototype.toString()](#arrayprototypetostring)
   - [Array.prototype.unshift()](#arrayprototypeunshift)
@@ -779,6 +780,24 @@ console.log(fechasLocales) // retorna '1,enero 2023,12/21/1997, 2:12:00 PM'
 
 **Notas**
 - Los locales y opciones pueden ser especificados para controlar el formato de la cadena resultante.
+
+## Array.prototype.toSorted()
+
+Es la versión de copia del método sort(). Devuelve un nuevo array con los elementos ordenados en orden ascendente por defecto.
+
+**Sintaxis**
+```javascript
+toSorted(function compareFn(a, b) { /* … */ })
+```
+
+**Ejemplo**
+```javascript
+const months = ["Mar", "Jan", "Feb", "Dec"];
+const sortedMonths = months.toSorted();
+
+console.log(sortedMonths); // ['Dec', 'Feb', 'Jan', 'Mar']
+console.log(months); // ['Mar', 'Jan', 'Feb', 'Dec']
+```
 
 ## Array.prototype.toSpliced()
 
