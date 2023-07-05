@@ -48,6 +48,7 @@
   - [Array.prototype.toString()](#arrayprototypetostring)
   - [Array.prototype.unshift()](#arrayprototypeunshift)
   - [Array.prototype.values()](#arrayprototypevalues)
+  - [Array.prototype.with()](#arrayprototypewith)
 
 ## Definición
 
@@ -843,3 +844,23 @@ console.log(iterador.next().value); // Retorna 'amarillo'
 
 **Notas**
 - Puede ser utilizado en un bucle `for...of` para iterar sobre los valores del array.
+
+## Array.prototype.with()
+
+Recibe un índice y un valor/elemento. Retorna un nuevo array remplazando el elemento en el índice especificado por el nuevo elemento.
+
+**Sintaxis**
+```javascript
+arrayObject.with(index, value)
+```
+
+**Ejemplo**
+```javascript
+const arr = [1, 2, 3, 4, 5];
+
+console.log(arr.with(2, 6)); // [1, 2, 6, 4, 5]
+console.log(arr); // [1, 2, 3, 4, 5]
+```
+
+**Notas**
+- Crea y retona un nuevo array.
