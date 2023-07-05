@@ -30,6 +30,7 @@
   - [Array.from()](#arrayfrom)
   - [Array.prototype.includes()](#arrayprototypeincludes)
   - [Array.prototype.indexOf()](#arrayprototypeindexof)
+  - [Array.isArray()](#arrayisarray)
   - [Array.prototype.join()](#arrayprototypejoin)
   - [Array.prototype.keys()](#arrayprototypekeys)
   - [Array.prototype.lastIndexOf()](#arrayprototypelastindexof)
@@ -450,6 +451,26 @@ const colores = ['rojo', 'azul', 'amarillo'];
 console.log(colores.indexOf('azul'));    // Retorna 1
 console.log(colores.indexOf('verde'));   // Retorna -1
 ```
+
+## Array.isArray()
+
+Determina si un valor pasado como argumento es un array.
+
+**Sintaxis**
+```typescript
+Array.isArray(obj)
+```
+
+**Ejemplo**
+```javascript
+Array.isArray([1, 2, 3]);  // true
+Array.isArray({foo: 123}); // false
+Array.isArray('foobar');   // false
+Array.isArray(undefined);  // false
+```
+
+**Notas**
+- Array.isArray es más recomendado que instanceof porque funciona a través de *iframes*
 
 ## Array.prototype.join()
 
