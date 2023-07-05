@@ -46,6 +46,8 @@
   - [Array.prototype.splice()](#arrayprototypesplice)
   - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
   - [Array.prototype.toString()](#arrayprototypetostring)
+  - [Array.prototype.unshift()](#arrayprototypeunshift)
+  - [Array.prototype.values()](#arrayprototypevalues)
 
 ## Definición
 
@@ -160,6 +162,7 @@ console.log(iterator.next().value); // Retorna [2, 'amarillo']
 
 **Notas**
 - Cada elemento del iterador es un array con dos elementos: el índice y el valor correspondiente.
+- Puede ser utilizado en un bucle `for...of` para iterar sobre los valores del array.
 
 ## Array.prototype.every()
 
@@ -795,3 +798,48 @@ console.log(cadena); // Retorna "manzana,banana,pera"
 
 **Notas**
 - Los elementos son separados por comas sin espacios.
+
+## Array.prototype.unshift()
+
+Agrega uno o más elementos al inicio del array y retorna la nueva longitud del array.
+
+**Sintaxis**
+```javascript
+arrayNombre.unshift(elemento1, elemento2, ..., elementoN)
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul'];
+
+const nuevaLongitud = colores.unshift('amarillo', 'verde');
+
+console.log(nuevaLongitud); // Retorna 4
+console.log(colores);       // Retorna ['amarillo', 'verde', 'rojo', 'azul']
+```
+
+**Notas**
+- Modifica el array original.
+
+## Array.prototype.values()
+
+Retorna un nuevo objeto iterador que contiene los valores de los elementos del array.
+
+**Sintaxis**
+```javascript
+arrayNombre.values()
+```
+
+**Ejemplo**
+```javascript
+const colores = ['rojo', 'azul', 'amarillo'];
+
+const iterador = colores.values();
+
+console.log(iterador.next().value); // Retorna 'rojo'
+console.log(iterador.next().value); // Retorna 'azul'
+console.log(iterador.next().value); // Retorna 'amarillo'
+```
+
+**Notas**
+- Puede ser utilizado en un bucle `for...of` para iterar sobre los valores del array.
