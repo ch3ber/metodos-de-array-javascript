@@ -27,6 +27,7 @@
   - [Array.prototype.flat()](#arrayprototypeflat)
   - [Array.prototype.flatMap()](#arrayprototypeflatmap)
   - [Array.prototype.forEach()](#arrayprototypeforeach)
+  - [Array.from()](#arrayfrom)
   - [Array.prototype.includes()](#arrayprototypeincludes)
   - [Array.prototype.indexOf()](#arrayprototypeindexof)
   - [Array.prototype.join()](#arrayprototypejoin)
@@ -387,6 +388,26 @@ frutas.forEach((fruta) => {
 // manzana
 // banana
 // pera
+```
+
+## Array.from()
+
+Crea un nuevo array a partir de un objeto iterable como un `NodeList`, un string o de un objeto similar a un array.
+
+**Sintaxis**
+```typescript
+Array.from(objetoIterable, function mapeo(element, index) {
+  // función que se aplica a cada elemento del objeto iterable antes de agregarlo al nuevo array.
+}, thisArg)
+```
+
+**Ejemplo**
+```javascript
+const cadena = 'Hola';
+
+const arrayCadena = Array.from(cadena);
+
+console.log(arrayCadena); // Retorna ['H', 'o', 'l', 'a']
 ```
 
 ## Array.prototype.includes()
