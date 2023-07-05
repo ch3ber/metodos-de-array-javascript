@@ -45,6 +45,7 @@
   - [Array.prototype.sort()](#arrayprototypesort)
   - [Array.prototype.splice()](#arrayprototypesplice)
   - [Array.prototype.toLocaleString()](#arrayprototypetolocalestring)
+  - [Array.prototype.toReversed()](#arrayprototypetoreversed)
   - [Array.prototype.toSorted()](#arrayprototypetosorted)
   - [Array.prototype.toSpliced()](#arrayprototypetospliced)
   - [Array.prototype.toString()](#arrayprototypetostring)
@@ -780,6 +781,25 @@ console.log(fechasLocales) // retorna '1,enero 2023,12/21/1997, 2:12:00 PM'
 
 **Notas**
 - Los locales y opciones pueden ser especificados para controlar el formato de la cadena resultante.
+
+## Array.prototype.toReversed()
+
+Es la copia del método reverse(). Devuelve una nueva matriz con los elementos en orden inverso.
+
+**Sintaxis**
+```javascript
+toReversed()
+```
+
+**Ejemplo**
+```javascript
+const items = [1, 2, 3];
+
+const reversedItems = items.toReversed();
+
+console.log(reversedItems); // [3, 2, 1]
+console.log(items); // [1, 2, 3]
+```
 
 ## Array.prototype.toSorted()
 
