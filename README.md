@@ -35,6 +35,7 @@
   - [Array.prototype.keys()](#arrayprototypekeys)
   - [Array.prototype.lastIndexOf()](#arrayprototypelastindexof)
   - [Array.prototype.map()](#arrayprototypemap)
+  - [Array.of()](#arrayof)
   - [Array.prototype.pop()](#arrayprototypepop)
   - [Array.prototype.push()](#arrayprototypepush)
   - [Array.prototype.reduce()](#arrayprototypereduce)
@@ -557,6 +558,27 @@ const numerosDoble = numeros.map((numero) => numero * 2);
 
 console.log(numerosDoble); // Retorna [2, 4, 6]
 ```
+
+## Array.of()
+
+Crea una nueva instancia Array con un número variable de elementos pasados como argumento, independientemente del número o del tipo.
+
+**Sintaxis**
+```typescript
+Array.of(elemento0, elemento1, ..., elementoN)
+```
+
+**Ejemplo**
+```javascript
+Array.of(7);       // [7]
+Array.of(1, 2, 3); // [1, 2, 3]
+
+Array(7);          // [ , , , , , , ]
+Array(1, 2, 3);    // [1, 2, 3]
+```
+
+**Notas**
+- La diferencia entre Array.of() y el constructor Array reside en como maneja los parámetros de tipo entero: Array.of(7) crea un array con un solo elemento, 7, mientras que Array(7) crea un array vacío con una propiedad length de 7 (esto implica un array de 7 ranuras vacías, no ranuras con valores undefined).
 
 ## Array.prototype.pop()
 
